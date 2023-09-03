@@ -42,8 +42,7 @@ public class EmployeeService {
     }
 
     public String deleteEmployee(int id){
-        final Optional<EmployeeEntity> employeeToBeDeleted = repository.findById(id);
-        repository.delete(employeeToBeDeleted);
+        repository.deleteById(id);
         return "Employee record deleted  ";
     }
 }

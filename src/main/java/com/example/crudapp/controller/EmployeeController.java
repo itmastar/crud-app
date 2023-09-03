@@ -39,7 +39,7 @@ public class EmployeeController {
         return "Employee salary updated with "+updatedEmployee.getSalary();
     }
     @DeleteMapping("/employee/{id}")
-    public String deleteEmployee(int id){
+    public String deleteEmployee(@PathVariable int id){
         service.deleteEmployee(id);
         return "Employee record deleted  with id "+id;
     }
