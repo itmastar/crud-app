@@ -14,10 +14,15 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    @PostMapping("/employee")
-    public String createEmployee(@RequestBody EmployeeEntity employee){
-        service.createEmployee(employee);
-        return "Employee record created with id :"+employee.getId();
+//    @PostMapping("/employee")
+//    public String createEmployee(@RequestBody EmployeeEntity employee){
+//        service.createEmployee(employee);
+//        return "Employee record created with id :"+employee.getId();
+//    }
+    @PostMapping("/employees")
+    public String createEmployees(@RequestBody List<EmployeeEntity> employees){
+        service.saveEmployees(employees);
+        return "Employee records created successfully";
     }
 
     @GetMapping("/employee")

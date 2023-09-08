@@ -13,10 +13,10 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository repository;
 
-    public String createEmployee(EmployeeEntity employee){
-        repository.save(employee);
-        return "Record created with employee id :"+employee.getId();
-    }
+//    public String createEmployee(EmployeeEntity employee){
+//        repository.save(employee);
+//        return "Record created with employee id :"+employee.getId();
+//    }
 
     public List<EmployeeEntity> getEmployees(){
         return repository.findAll();
@@ -44,5 +44,10 @@ public class EmployeeService {
     public String deleteEmployee(int id){
         repository.deleteById(id);
         return "Employee record deleted  ";
+    }
+
+    public String saveEmployees(List<EmployeeEntity> entities){
+        repository.saveAll(entities);
+        return "Records inserted ";
     }
 }

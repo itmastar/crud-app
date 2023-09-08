@@ -1,12 +1,11 @@
 package com.example.crudapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 
 @Entity
@@ -16,9 +15,13 @@ import lombok.NoArgsConstructor;
 public class EmployeeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int empId;
     private String firstName;
     private String lastName;
     private int salary;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_address_emp")
+    private List<AddressEntity> address;
 
 }
